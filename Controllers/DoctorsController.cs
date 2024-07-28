@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Your_Health.Server.Models;
 using Your_Health.server.Services;
+using Microsoft.AspNetCore.Authorization;
 
 public class DoctorsController : Controller
 {
@@ -17,6 +18,8 @@ public class DoctorsController : Controller
         return Ok("App Works");
     }
 
+    [HttpGet]
+    [Authorize]
     public IActionResult GetDoctors()
     {
         var doctors = _doctorService.GetAllDoctors();

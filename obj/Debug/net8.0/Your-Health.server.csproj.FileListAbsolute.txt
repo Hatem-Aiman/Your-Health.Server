@@ -138,3 +138,4 @@ C:\Project\Your-Health.server\Your-Health.server\obj\Debug\net8.0\Your-Health.se
 C:\Project\Your-Health.server\Your-Health.server\obj\Debug\net8.0\ref\Your-Health.server.dll
 C:\Project\Your-Health.server\Your-Health.server\bin\Debug\net8.0\AutoMapper.dll
 C:\Project\Your-Health.server\Your-Health.server\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Project\Your-Health.server\Your-Health.server\obj\Debug\net8.0\Your-Health.server.sourcelink.json

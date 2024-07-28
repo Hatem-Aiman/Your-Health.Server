@@ -125,6 +125,12 @@ namespace Your_Health.Server.Data
                 new Appointment { AppointmentId = 19, Date = DateTime.Now.AddDays(19), Description = "Pediatrics", IsConfirmed = true, DocId = 19, PatientId = 19 },
                 new Appointment { AppointmentId = 20, Date = DateTime.Now.AddDays(20), Description = "Oncology", IsConfirmed = false, DocId = 20, PatientId = 20 }
             );
+            modelBuilder.Entity<IdentityRole>(IdentityRole => IdentityRole.HasData(
+                new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+                new IdentityRole { Id = "2", Name = "Manager", NormalizedName = "MANAGER" },
+                new IdentityRole { Id = "3", Name = "User", NormalizedName = "USER" }
+            ));
         }
+
     }
 }
