@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Your-Health.server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a11d013af26ca6fc22eaac667df23a10e51fff33")]
 [assembly: System.Reflection.AssemblyProductAttribute("Your-Health.server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Your-Health.server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
