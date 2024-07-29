@@ -19,7 +19,6 @@ public class DoctorsController : Controller
     }
 
     [HttpGet]
-    [Authorize]
     public IActionResult GetDoctors()
     {
         var doctors = _doctorService.GetAllDoctors();
