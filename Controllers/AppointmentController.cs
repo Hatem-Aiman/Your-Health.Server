@@ -16,15 +16,15 @@ namespace Your_Health.server.Controllers
             return Ok("Works");
         }
 
-        public IActionResult GetAppointments()
+        public async Task<IActionResult> GetAppointments()
         {
-            var result =_appointmentService.GetAllAppointments();
+            var result =await _appointmentService.GetAllAppointments();
             return Ok(result);
         }
 
-        public IActionResult GetAppointment(int id)
+        public async Task<IActionResult> GetAppointment(int id)
         {
-            var result = _appointmentService.GetAppointmentById(id);
+            var result =await _appointmentService.GetAppointmentById(id);
             return Ok(result);
         }
 

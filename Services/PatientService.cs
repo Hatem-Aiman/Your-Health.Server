@@ -14,30 +14,30 @@ namespace Your_Health.server.Services
             _context = context;
         }
 
-        public IEnumerable<PatientDto> GetAllPatients()
+        public async Task<IEnumerable<PatientDto>> GetAllPatients()
         {
-            var patients = _context.patients.Include(p => p.doctor).Select(p => new PatientDto
+            var patients =await _context.patients.Include(p => p.doctor).Select(p => new PatientDto
             {
                 PatientId = p.PatientId,
                 PatientName = p.PatientName,
                 phone = p.phone,
                 IsDiagnosed = p.IsDiagnosed,
                 doctor = p.doctor
-            }).ToList();
+            }).ToListAsync();
 
             return patients;
         }
 
-        public PatientDto GetPatientById(int id)
+        public async Task<PatientDto> GetPatientById(int id)
         {
-            var patient = _context.patients.Select(p => new PatientDto
+            var patient =await _context.patients.Select(p => new PatientDto
             {
                 PatientId = p.PatientId,
                 PatientName = p.PatientName,
                 phone = p.phone,
                 IsDiagnosed = p.IsDiagnosed,
                 doctor = p.doctor
-            }).FirstOrDefault(p => p.PatientId == id);
+            }).FirstOrDefaultAsync(p => p.PatientId == id);
 
             if (patient == null)
             {

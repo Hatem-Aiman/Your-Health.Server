@@ -12,9 +12,9 @@ namespace Your_Health.server.Services
             _context = context;
         }
 
-        public IEnumerable<AppointmentDto> GetAllAppointments()
+        public async Task<IEnumerable<AppointmentDto>> GetAllAppointments()
         {
-            var appointments = _context.appointments.Include(d => d.doctor).Include(p => p.patient).Select(a => new AppointmentDto
+            var appointments =await _context.appointments.Include(d => d.doctor).Include(p => p.patient).Select(a => new AppointmentDto
             {
                 AppointmentId = a.AppointmentId,
                 Date = a.Date,
@@ -36,13 +36,13 @@ namespace Your_Health.server.Services
                     IsDiagnosed = a.patient.IsDiagnosed,
                 }
 
-            }).ToList();
+            }).ToListAsync();
             return appointments;
         }
 
-        public AppointmentDto GetAppointmentById(int id)
+        public async  Task<AppointmentDto> GetAppointmentById(int id)
         {
-            var appointment = _context.appointments.Include(d => d.doctor).Include(p => p.patient).Select(a => new AppointmentDto
+            var appointment =await _context.appointments.Include(d => d.doctor).Include(p => p.patient).Select(a => new AppointmentDto
             {
                 AppointmentId = a.AppointmentId,
                 Date = a.Date,
@@ -64,7 +64,7 @@ namespace Your_Health.server.Services
                     IsDiagnosed = a.patient.IsDiagnosed,
                 }
                 
-            }).FirstOrDefault(a => a.AppointmentId == id);
+            }).FirstOrDefaultAsync(a => a.AppointmentId == id);
             return appointment;
         }
 

@@ -5,8 +5,8 @@ namespace Your_Health.server.Services
 {
     public interface IAppointmentService
     {
-        IEnumerable<AppointmentDto> GetAllAppointments();
-        AppointmentDto GetAppointmentById(int id);
+        Task<IEnumerable<AppointmentDto>> GetAllAppointments();
+        Task<AppointmentDto> GetAppointmentById(int id);
         void CreateAppointment(Appointment appointment);
         void UpdateAppointment(Appointment appointment);
         void DeleteAppointment(int id);
