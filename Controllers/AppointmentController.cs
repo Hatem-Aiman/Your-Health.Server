@@ -18,7 +18,7 @@ namespace Your_Health.server.Controllers
 
         public IActionResult GetAppointments()
         {
-            var result = _appointmentService.GetAllAppointments();
+            var result =_appointmentService.GetAllAppointments();
             return Ok(result);
         }
 
@@ -29,7 +29,7 @@ namespace Your_Health.server.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Appointment appointment)
+        public IActionResult CreateAppointment(Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace Your_Health.server.Controllers
             return Ok("Model Not Valid");
         }
 
-        public IActionResult Update(int id, Appointment appointment)
+        public IActionResult UpdateAppointment(int id, Appointment appointment)
         {
             if (id != appointment.AppointmentId)
             {
@@ -48,7 +48,7 @@ namespace Your_Health.server.Controllers
             return Ok("Updated");
         }
 
-        public IActionResult Delete(int id, Appointment appointment)
+        public IActionResult DeleteAppointment(int id, Appointment appointment)
         {
             if (id != appointment.AppointmentId)
             {

@@ -14,9 +14,9 @@ namespace Your_Health.server.Services
             _context = context;
         }
 
-        public IEnumerable<DoctorDto> GetAllDoctors()
+        public async Task<IEnumerable<DoctorDto>> GetAllDoctors()
         {
-            var doctors = _context.doctors.Include(d => d.speciality).Select(d => new DoctorDto
+            var doctors =await _context.doctors.Include(d => d.speciality).Select(d => new DoctorDto
             {
                 DocId = d.DocId,
                 DocFirstName = d.DocFirstName,
@@ -24,14 +24,14 @@ namespace Your_Health.server.Services
                 Email = d.email,
                 Phone = d.phone,
                 SpecialityName = d.speciality.SpecialityName
-            }).ToList();
+            }).ToListAsync();
 
             return doctors;
         }
 
-        public DoctorDto GetDoctorById(int id)
+        public async Task<DoctorDto> GetDoctorById(int id)
         {
-            var doctor =_context.doctors.Include(d => d.speciality).Select(d => new DoctorDto
+            var doctor =await _context.doctors.Include(d => d.speciality).Select(d => new DoctorDto
             {
                DocId = d.DocId,
                DocFirstName = d.DocFirstName,
@@ -39,9 +39,7 @@ namespace Your_Health.server.Services
                Email = d.email,
                Phone = d.phone,
                SpecialityName = d.speciality.SpecialityName
-
-
-            }).FirstOrDefault(d => d.DocId == id);
+            }).FirstOrDefaultAsync(d => d.DocId == id);
 
             if (doctor == null)
             {

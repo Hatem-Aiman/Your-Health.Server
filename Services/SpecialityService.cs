@@ -58,7 +58,10 @@ namespace Your_Health.server.Services
                     }).ToList()
                 })
                 .FirstOrDefault();
-
+            if (speciality == null)
+            {
+                return null;
+            }
             return speciality;
 
         }

@@ -2,14 +2,17 @@
 using Your_Health.Server.Models;
 using Your_Health.server.Services;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Immutable;
 
 public class DoctorsController : Controller
 {
     private readonly IDoctorService _doctorService;
+    private readonly ISpecialityService _specialityService;
 
-    public DoctorsController(IDoctorService doctorService)
+    public DoctorsController(IDoctorService doctorService, ISpecialityService specialityService)
     {
         _doctorService = doctorService;
+        _specialityService = specialityService;
     }
 
 
@@ -19,14 +22,14 @@ public class DoctorsController : Controller
     }
 
     [HttpGet]
-    public IActionResult GetDoctors()
+    public async Task<IActionResult> GetDoctors()
     {
-        var doctors = _doctorService.GetAllDoctors();
+        var doctors =await _doctorService.GetAllDoctors();
         return Ok(doctors);
     }
-    public IActionResult GetDoctor(int id)
+    public async Task<IActionResult> GetDoctor(int id)
     {
-        var doctor = _doctorService.GetDoctorById(id);
+        var doctor =await _doctorService.GetDoctorById(id);
         if (doctor == null)
         {
             return NotFound();
@@ -34,21 +37,27 @@ public class DoctorsController : Controller
         return Ok(doctor);
     }
 
-    
+
     [HttpPost]
-    public IActionResult Create(Doctor doctor)
+    public IActionResult CreateDoctor(string DocFirstName, string DocLastName , string  email, int phone, string speciality)
     {
-        if (ModelState.IsValid)
+        var specId = _specialityService.GetAllSpecialities().Where(c => c.SpecialityName == speciality).Select(c => c.SpecialityId);
+        var newdoc = new Doctor
         {
-            _doctorService.CreateDoctor(doctor);
-            return Ok(doctor);
-        }
-        return Ok("Model Not Valid");
+            DocFirstName = DocFirstName,
+            DocLastName = DocLastName,
+            email = email,
+            phone = phone,
+            SpecialityId = specId.First()
+        };
+             Console.WriteLine(newdoc);
+            _doctorService.CreateDoctor(newdoc);
+            return Ok(newdoc);
     }
 
 
     [HttpPost]
-    public IActionResult Edit(int id, Doctor doctor)
+    public IActionResult UpdateDoctor(int id, Doctor doctor)
     {
         if (id != doctor.DocId)
         {
@@ -64,7 +73,7 @@ public class DoctorsController : Controller
     }
 
     [HttpPost]
-    public IActionResult Delete(int id)
+    public IActionResult DeleteDoctor(int id)
     {
         _doctorService.DeleteDoctor(id);
         return Ok("Deleted");
