@@ -16,16 +16,16 @@ namespace Your_Health.server.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<PatientDto>> GetPatients()
+        public async Task<ActionResult<IEnumerable<PatientDto>>> GetPatients()
         {
-            var patients = _patientService.GetAllPatients();
+            var patients =await _patientService.GetAllPatients();
             return Ok(patients);
         }
 
         [HttpGet]
-        public ActionResult<PatientDto> GetPatient(int id)
+        public async Task<ActionResult<PatientDto>> GetPatient(int id)
         {
-            var patient = _patientService.GetPatientById(id);
+            var patient =await _patientService.GetPatientById(id);
             if (patient == null)
             {
                 return NotFound();

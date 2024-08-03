@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Project\\Your-Health.server\\Your-Health.server\\Your-Health.server.csproj": {}
+    "D:\\Your-Health\\Server\\Your-Health.server\\Your-Health.server.csproj": {}
   },
   "projects": {
-    "C:\\Project\\Your-Health.server\\Your-Health.server\\Your-Health.server.csproj": {
+    "D:\\Your-Health\\Server\\Your-Health.server\\Your-Health.server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Project\\Your-Health.server\\Your-Health.server\\Your-Health.server.csproj",
+        "projectUniqueName": "D:\\Your-Health\\Server\\Your-Health.server\\Your-Health.server.csproj",
         "projectName": "Your-Health.server",
-        "projectPath": "C:\\Project\\Your-Health.server\\Your-Health.server\\Your-Health.server.csproj",
-        "packagesPath": "C:\\Users\\Hatem\\.nuget\\packages\\",
-        "outputPath": "C:\\Project\\Your-Health.server\\Your-Health.server\\obj\\",
+        "projectPath": "D:\\Your-Health\\Server\\Your-Health.server\\Your-Health.server.csproj",
+        "packagesPath": "C:\\Users\\hatem\\.nuget\\packages\\",
+        "outputPath": "D:\\Your-Health\\Server\\Your-Health.server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hatem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hatem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
