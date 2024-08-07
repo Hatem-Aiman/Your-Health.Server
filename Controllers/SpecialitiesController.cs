@@ -32,14 +32,14 @@ namespace Your_Health.server.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(Speciality speciality)
+        public ActionResult CreateSpeciality(string SpecialityName)
         {
-            if (ModelState.IsValid)
+            if (SpecialityName == null)
             {
-                _specialityService.CreateSpeciality(speciality);
-                return Ok(speciality);
+                return BadRequest("Provide a Name");
             }
-            return Ok("Model Not Valid");
+                _specialityService.CreateSpeciality(SpecialityName);
+                return Ok(SpecialityName);
         }
  
         public ActionResult Update(int id, Speciality speciality)

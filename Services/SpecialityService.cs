@@ -17,9 +17,8 @@ namespace Your_Health.server.Services
 
         public IEnumerable<SpecialityDto> GetAllSpecialities() {
 
-
                 var specialities = _context.Specialities
-                    .Include(s => s.Doctors) // Include the Doctors navigation property
+                    .Include(s => s.Doctors) 
                     .Select(s => new SpecialityDto
                     {
                         SpecialityId = s.SpecialityId,
@@ -66,8 +65,12 @@ namespace Your_Health.server.Services
 
         }
 
-        public void CreateSpeciality(Speciality speciality)
+        public void CreateSpeciality(string specialityName)
         {
+            Speciality speciality = new Speciality
+            {
+                SpecialityName = specialityName
+            };
             _context.Specialities.Add(speciality);
             _context.SaveChanges();
         }

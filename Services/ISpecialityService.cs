@@ -7,7 +7,7 @@ namespace Your_Health.server.Services
     {
         IEnumerable<SpecialityDto> GetAllSpecialities();
         SpecialityDto GetSpecialityById(int id);
-        void CreateSpeciality(Speciality speciality);
+        void CreateSpeciality(string SpecialityName);
         void UpdateSpeciality(Speciality speciality);
         void DeleteSpeciality(int id);
     }
